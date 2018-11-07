@@ -1,6 +1,7 @@
 int ledPinArray[4] = {0, 1, 2, 3};
 int buttonPinArray[4] = {4, 5, 6, 7};
-int switchPin = 22;
+int switchPin1 = 22;
+int switchPin2 = 21;
 int potPin = A9;
 int midiArray[4] = {39, 39, 39, 39};
 int currentStep = 0;
@@ -14,7 +15,8 @@ void setup() {
     pinMode(ledPinArray[i], OUTPUT);
     pinMode(buttonPinArray[i], INPUT);
   }
-  pinMode(switchPin, INPUT);
+  pinMode(switchPin1, INPUT);
+  pinMode(switchPin2, INPUT);
 }
 
 void loop() {
@@ -24,7 +26,7 @@ void loop() {
 }
 
 void sequence() {
-  int tempo = analogRead(A9);
+  int tempo = analogRead(potPin);
 
   if (millis() > lastStepTime + tempo) {
 
